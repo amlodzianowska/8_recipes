@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Welcome, {{recipe.cook.first_name}}!</h1>
+                <a href="/logout" class="btn btn-danger float-end">Logout</a>
+                <a href="/dashboard" class="btn btn-danger float-end">Dashboard</a>
+                <h2 class="title">{{recipe.name}}</h2>
+                <div class="form">
+                    <h3>Description: <span class="light">{{ recipe.description }}</span></h3>
+                    <h3>Under 30 minutes: <span class="light">{{ recipe.under_30 }}</span></h3>
+                    <h3>Instructions: <span class="light">{{ recipe.instructions }}</span></h3>
+                    <h3>Date made: <span class="light">{{ recipe.made_on.strftime('%B %d') }}th, {{ recipe.made_on.strftime('%Y') }}</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
